@@ -1,0 +1,26 @@
+services:
+- type: web
+  name: lcm-booking-backend
+  env: python
+  plan: free
+  buildCommand: pip install -r requirements.txt
+  startCommand: gunicorn app.app:app
+  envVars:
+    - key: DATABASE_URL
+      sync: false
+    - key: ADMIN_KEY
+      sync: false
+    - key: EMAIL_FROM
+      sync: false
+    - key: EMAIL_TO
+      sync: false
+    - key: SMTP_HOST
+      sync: false
+    - key: SMTP_PORT
+      sync: false
+    - key: SMTP_USER
+      sync: false
+    - key: SMTP_PASS
+      sync: false
+    - key: GOOGLE_CALENDAR_ID
+      sync: false
